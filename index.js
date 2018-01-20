@@ -65,9 +65,10 @@ function onIntent(intentRequest, session, callback) {
 
     if(intentName == "CreateRoom"){
         handleCreateRoomResponse(intent, session, callback);
-    }else if(intentName == "CloseRoom"){
-//FIXME: add handler
-        handlerCloseRoomResponse(intent, session, callback)
+    }else if(intentName == "StartRecording"){
+        handlerStartResponse(intent, session, callback)
+    }else if(intentName == "StopRecording"){
+        handlerStopResponse(intent, session, callback)
     }else if (intentName == "AMAZON.CancelIntent"){
         handleFinishSessionRequest(intent, session, callback)
     }else if (intentName == "AMAZON.HelpIntent"){
@@ -105,12 +106,14 @@ function getWelcomeResponse(callback) {
 
     callback(sessionAttributes, buildSpeechletResponse(header, speechOutput, reprompt, shouldEndSession))
 }
+
+// Create the room via API endpoints
 function handleCreateRoomResponse(intent, session, callback){
       if(true){
         var speechOutput = "Something went wrong."
           getJSON(function(data){
             if(data != "ERROR"){
-              speechOutput = "You succesfully started a room"
+              speechOutput = "You succesfully started room " + data
             }
           callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", false))
           })
@@ -122,29 +125,58 @@ function handleCreateRoomResponse(intent, session, callback){
         callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession));
   }
 }
-function handlerCloseRoomResponse(intent, session, callback){
-  var speechOutput = "We have an error."
 
-  getJSON(function(data){
+//StartRecording
+function handlerStartResponse(intent, session, callback){
+  var speechOutput = "Recording unavailable"
+
+  getLameKerlin(urlrecording(), function(data){
     if(data != "ERROR"){
       speechOutput = data
     }
   callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
-})
+  })
+}
+//StopRecording
+function handlerStopResponse(intent, session, callback){
+  var speechOutput = "Can't stop recording"
+
+  getLameKerlin(urlstop(), function(data){
+    if(data != "ERROR"){
+      speechOutput = data
+    }
+  callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
+  })
 }
 
+//Connection to API
 function url(){
   //get request url from wikipedia
-  return "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=Albert+Einstein"
-
+  return "http://kerlin.tech:5000/create-room"
 }
 
+function urlrecording(){
+  return "http://kerlin.tech:5000/start-recording"
+}
+
+function urlstop(){
+  return "http://kerlin.tech:5000/stop-recording"
+}
+function getLameKerlin(url, callback){
+    request.get(url, function(error, response, body){
+      var d = body
+      if(d == "Success"){
+        callback(d);
+      } else {
+        callback("ERROR")
+      }
+    })
+}
 function getJSON(callback){
     request.get(url(), function(error, response, body){
-      var d = JSON.parse(body)
-      var result = d.query.searchinfo.totalhits
-      if(result > 0){
-        callback(result);
+      var d = Number.parseInt(body)
+      if(d >= 0){
+        callback(d);
       } else {
         callback("ERROR")
       }
