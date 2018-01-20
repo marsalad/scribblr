@@ -1,3 +1,4 @@
+var request = require("request")
 // Route the incoming request based on type (LaunchRequest, IntentRequest,
 // etc.) The JSON body of the request is provided in the event parameter.
 exports.handler = function (event, context) {
@@ -119,13 +120,39 @@ function handleCreateRoomResponse(intent, session, callback){
 
 }
 function handlerCloseRoomResponse(intent, session, callback){
-  handleFinishSessionRequest(intent, session, callback)
+  var speechOutput = "We have an error."
+
+  getJSON(function(data){
+    if(data != "ERROR"){
+      var speechOutput = data
+    }
+  })
+  callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
 }
+
+function url(){
+  //get request url from wikipedia
+  return "https://en.wikipedia.org/w/api.php?action=query&format=json&list=search&utf8=1&srsearch=Albert+Einstein"
+
+}
+
+function getJSON(callback){
+    request.get(url(), function(error, response, body){
+      var d = JSON.parse(body)
+      var result = d.query.searchinfo.totalhits
+      if(result > 0){
+        callback(result);
+      } else {
+        callback("ERROR")
+      }
+    })
+}
+
 function handleYesResponse(intent, session, callback){
   var speechOutput = "What can I do for you?"
   var repromptText = "What can I do for you?"
   var shouldEndSession = false
-  callback(sessioon.attributes, buildSpeachLetResponseWithoutCard(speechOutput, repromptText))
+  callback(sessioon.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText))
 }
 
 function handleNoResponse(intent, session, callback){
