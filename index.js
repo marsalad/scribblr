@@ -66,6 +66,7 @@ function onIntent(intentRequest, session, callback) {
         handleCreateRoomResponse(intent, session, callback);
     }else if(intentName == "CloseRoom"){
 //FIXME: add handler
+        handlerCloseRoomResponse(intent, session, callback)
     }else if (intentName == "AMAZON.CancelIntent"){
         handleFinishSessionRequest(intent, session, callback)
     }else if (intentName == "AMAZON.HelpIntent"){
@@ -116,6 +117,9 @@ function handleCreateRoomResponse(intent, session, callback){
       var shouldEndSession = false
       callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession));
 
+}
+function handlerCloseRoomResponse(intent, session, callback){
+  handleFinishSessionRequest(intent, session, callback)
 }
 function handleYesResponse(intent, session, callback){
   var speechOutput = "What can I do for you?"
