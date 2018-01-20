@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, TextInput, Platform,
 
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
 let audioPath = AudioUtils.DocumentDirectoryPath + '/test.wav';
+import openSocket from 'socket.io-client'
 
 export default class RoomControls extends React.Component {
 
@@ -29,7 +30,9 @@ export default class RoomControls extends React.Component {
       AudioRecorder.onProgress = (data) => {
           console.log(data)
       };
-  })
+    })
+    this.socket = openSocket('http://10.251.83.168:5000', { transports: ['websocket'] });
+    this.socket.on('start-recording', () => this.setState({errors: 'begin le record'}))
   }
 
   componentWillUnmount() {

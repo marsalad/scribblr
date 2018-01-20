@@ -20,6 +20,7 @@
     "react": "16.0.0",
     "react-native": "0.50.3",
     "react-native-audio": "^3.5.1",
-    "react-navigation": "^1.0.0-beta.27"
+    "react-navigation": "^1.0.0-beta.27",
+    "socket.io-client": "^2.0.4"
   }
 }
