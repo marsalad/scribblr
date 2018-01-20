@@ -124,7 +124,7 @@ function handlerCloseRoomResponse(intent, session, callback){
 
   getJSON(function(data){
     if(data != "ERROR"){
-      var speechOutput = data
+      speechOutput = data
     }
   })
   callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
