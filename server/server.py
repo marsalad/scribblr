@@ -31,7 +31,7 @@ fb_root = db.reference()
 def create_room():
     num_rooms = len(fb_root.child('room').get())
     fb_root.child('room').child(str(num_rooms)).set({'emails': ['michelkerlin@gmail.com']})
-    return "Created Room " + str(num_rooms)
+    return  str(num_rooms)
 
 @app.route("/add-email", methods=["GET"])
 def add_email():
