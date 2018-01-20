@@ -1,1 +1,5 @@
 flask
+SpeechRecognition
+python-socketio
+eventlet
+pydub
