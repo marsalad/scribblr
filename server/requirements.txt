@@ -4,4 +4,6 @@ python-socketio
 eventlet
 pydub
 firebase-admin
+nltk
+python-dotenv
 -e git://github.com/summanlp/textrank.git#egg=summa
