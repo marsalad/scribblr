@@ -1,52 +1,82 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput,
+import { StyleSheet, Text, View, TextInput, Platform,
   TouchableHighlight, Modal, Button, PermissionsAndroid } from 'react-native';
 
 import {AudioRecorder, AudioUtils} from 'react-native-audio';
-let audioPath = AudioUtils.DocumentDirectoryPath + '/test.aac';
+let audioPath = AudioUtils.DocumentDirectoryPath + '/test.wav';
 
 export default class RoomControls extends React.Component {
 
   state = {
-    recording: false
+    recording: false,
+    errors: ''
+  }
+
+  prepare() {
+    AudioRecorder.prepareRecordingAtPath(audioPath, {
+        SampleRate: 22050,
+        Channels: 1,
+        AudioQuality: "High",
+        AudioEncoding: "wav",
+        AudioEncodingBitRate: 32000
+      });
   }
 
   componentDidMount() {
-     /*this._checkPermission().then((hasPermission) => {
-        AudioRecorder.prepareRecordingAtPath(audioPath, {
-            SampleRate: 22050,
-            Channels: 1,
-            AudioQuality: "Low",
-            AudioEncoding: "aac",
-            AudioEncodingBitRate: 32000
-          });
-
-        AudioRecorder.onProgress = (data) => {
-            console.log(data)
-        };
-    }*/
+    var _this = this;
+    this._checkPermission().then((hasPermission) => {
+      _this.prepare()
+      AudioRecorder.onProgress = (data) => {
+          console.log(data)
+      };
+  })
   }
 
-  toggleRecord() {
+  componentWillUnmount() {
+    clearInterval(this._interval);
+  }
+
+  async toggleRecord() {
     if(!this.state.recording) {
-      console.log('begin recording')
       try {
         const filePath = await AudioRecorder.startRecording();
         this.setState({recording: true})
       } catch (error) {
         console.error(error);
       }
+      var _this = this;
+      this._interval = setInterval(() => {
+        _this.stopAndSend();
+      }, 5000)
+
     } else {
-      console.log('stop recording')
-      try {
-       const filePath = await AudioRecorder.stopRecording();
-       if (Platform.OS === 'android') {
-         //this._finishRecording(true, filePath);
-       }
-       //return filePath;
-      } catch (error) {
-        console.error(error);
-      }
+      const filePath = await AudioRecorder.stopRecording();
+      clearInterval(this._interval);
+      this.setState({recording: false})
+    }
+  }
+
+  async stopAndSend() {
+    const filePath = await AudioRecorder.stopRecording();
+    this.setState({recording: false})
+    fileURI = 'file://' + filePath
+    const data = new FormData();
+    data.append('file', {
+      uri: fileURI,
+      type: 'audio/wav',
+      name: 'file'
+    });
+    fetch('http://10.251.83.168:5000/stream-audio', {
+      method: 'POST',
+      body: data
+    })
+    .then((res) => console.log(res))
+    this.prepare()
+    try {
+      const filePath = await AudioRecorder.startRecording();
+      this.setState({recording: true})
+    } catch (error) {
+      console.error(error);
     }
   }
 
@@ -74,9 +104,10 @@ export default class RoomControls extends React.Component {
       <View style={styles.container}>
         <Text>{state.params.roomName}</Text>
         <Button
-          onPress={() => this.record()}
+          onPress={() => this.toggleRecord()}
           title= "Record"
         />
+      <Text>{this.state.errors}</Text>
       </View>
     )
   }
