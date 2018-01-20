@@ -61,6 +61,24 @@ function onIntent(intentRequest, session, callback) {
     var intentName = intentRequest.intent.name;
 
     // dispatch custom intents to handlers here
+
+    if(intentName == "CreateRoom"){
+        handleCreateRoomResponse(intent, session, callback);
+    }else if(intentName == "CloseRoom"){
+//FIXME: add handler
+    }else if (intentName == "AMAZON.CancelIntent"){
+        handleFinishSessionRequest(intent, session, callback)
+    }else if (intentName == "AMAZON.HelpIntent"){
+      handleGetHelpRequest(intent, session, call)
+    }else if (intentName == "AMAZON.StopIntent"){
+      handleFinishSessionRequest(intent, session, callback)
+    }else if(intentName == "AMAZON.YesIntent"){
+      handleYesResponse(intent, session, callback)
+    }else if(intentName == "AMAZON.NoIntent"){
+      handleNoResponse(intent, session, callback)
+    else{
+      throw "Invalid intent"
+    }
 }
 
 /**
@@ -74,29 +92,56 @@ function onSessionEnded(sessionEndedRequest, session) {
 // ------- Skill specific logic -------
 
 function getWelcomeResponse(callback) {
-    var speechOutput = "Hi I'm your scribbler for today's meeting, how can I help?"
+    var speechOutput = "Hi! I'm your scribbler, how can I help?"
     var reprompt = "Would you like to create a meeting room?"
     var header = "Scribblr"
     var shouldEndSession = false
     var sessionAttributes = {
-      "speechOutput" = speechOutput
-      "repromptText" = repromptText
+      "speechOutput": speechOutput,
+      "repromptText": repromptText
     }
 
     callback(sessionAttributes, buildSpeechletResponse(header, speechOutput, reprompt, shouldEndSession))
 }
+function handleCreateRoomResponse(intent, session, callback){
+      if(true){
+        var speechOutput = "You started a session, let me know when you want to end it."
+        var header = "Session Started"
+        var reprompt = "Is there something else I can do for you?"
+      }else{
+        var speechOutput = "I'm sorry, I couldn't open the meeting room."
+        var repromptText = "would you like to try again?"
+        var header = "Creating Room failed."
+      }
+      var shouldEndSession = false
+      callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession));
 
+}
+function handleYesResponse(intent, session, callback){
+  var speechOutput = "What can I do for you?"
+  var repromptText = "What can I do for you?"
+  var shouldEndSession = false
+  callback(sessioon.attributes, buildSpeachLetResponseWithoutCard(speechOutput, repromptText))
+}
+
+function handleNoResponse(intent, session, callback){
+  handleFinishSessionRequest(intent, session, callback)
+}
 function handleGetHelpRequest(intent, session, callback) {
     // Ensure that session.attributes has been initialized
     if (!session.attributes) {
         session.attributes = {};
+    }
+    var speechOutput = "I can open meetings, I can close meetings."
+    var repromptText = "Ask me to open or close a meeting."
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession = false))
 
 }
 
 function handleFinishSessionRequest(intent, session, callback) {
     // End the session with a "Good bye!" if the user wants to quit the game
     callback(session.attributes,
-        buildSpeechletResponseWithoutCard("Good bye!", "", true));
+        buildSpeechletResponseWithoutCard("Good bye!", "Call me back if you need me to do anything else", true));
 }
 
 
