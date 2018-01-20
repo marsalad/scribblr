@@ -31,7 +31,7 @@ fb_root = db.reference()
 def create_room():
     num_rooms = len(fb_root.child('room').get())
     fb_root.child('room').child(str(num_rooms)).set({'emails': ['michelkerlin@gmail.com']})
-    return  str(num_rooms)
+    return str(num_rooms)
 
 @app.route("/add-email", methods=["GET"])
 def add_email():
@@ -61,8 +61,8 @@ def trigger_stop():
 words = []
 curr_sent = ''
 sents = []
-@app.route("/stream-audio", methods=["POST"])
-def stream_audio():
+@app.route("/stream-audio/<room>", methods=["POST"])
+def stream_audio(room):
     if 'file' in request.files:
         _file = request.files['file']
         _file.save('./test.wav')
@@ -79,6 +79,7 @@ def stream_audio():
                 curr_sent += text + ' '
                 print('text:', text)
                 if len(words) >= 30:
+                    fb_root.child('room').child(room).child('cards').push(keywords.keywords(' '.join(words)).split('\n'))
                     print('Keywords:', str(keywords.keywords(' '.join(words)).split('\n')))
                     print('Sents:', '.'.join(sents))
                     #print('Summary:', summarizer.summarize(' '.join(words), words=15))
