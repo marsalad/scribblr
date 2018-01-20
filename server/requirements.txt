@@ -3,3 +3,4 @@ SpeechRecognition
 python-socketio
 eventlet
 pydub
+-e git://github.com/summanlp/textrank.git#egg=summa

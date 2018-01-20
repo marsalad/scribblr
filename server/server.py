@@ -4,6 +4,8 @@ import eventlet
 import eventlet.wsgi
 import speech_recognition as sr
 from pydub import AudioSegment
+from summa import keywords, summarizer
+from nltk.tokenize import word_tokenize
 from os.path import join, dirname
 from dotenv import load_dotenv
 
@@ -22,6 +24,15 @@ def trigger_record():
         sio.emit('start-recording', room=recorder)
     return "Success"
 
+@app.route("/stop-recording". methods=["POST", "GET"])
+def trigger_stop():
+    for recorder in recorders:
+        sio.emit('stop-recording', room=recorder)
+    return "Success"
+
+words = []
+curr_sent = ''
+sents = []
 @app.route("/stream-audio", methods=["POST"])
 def stream_audio():
     if 'file' in request.files:
@@ -31,10 +42,23 @@ def stream_audio():
         audio_file.export("test.wav", format="wav")
         try:
             with sr.AudioFile('./test.wav') as f:
+                global curr_sent
                 audio = r.record(f)
                 text = r.recognize_google(audio)
-                print(text)
+                tokens = word_tokenize(text)
+                global words
+                words += tokens
+                curr_sent += text + ' '
+                print('text:', text)
+                if len(words) >= 30:
+                    print('Keywords:', str(keywords.keywords(' '.join(words)).split('\n')))
+                    print('Sents:', '.'.join(sents))
+                    #print('Summary:', summarizer.summarize(' '.join(words), words=15))
+                    words = []
         except Exception as e:
+            #global sents
+            sents.append(curr_sent)
+            curr_sent = ''
             print(e)
             return 'Error'
         return 'Got file'
