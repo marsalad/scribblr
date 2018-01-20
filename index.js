@@ -77,7 +77,7 @@ function onIntent(intentRequest, session, callback) {
       handleYesResponse(intent, session, callback)
     }else if(intentName == "AMAZON.NoIntent"){
       handleNoResponse(intent, session, callback)
-    else{
+    }else{
       throw "Invalid intent"
     }
 }
@@ -99,7 +99,7 @@ function getWelcomeResponse(callback) {
     var shouldEndSession = false
     var sessionAttributes = {
       "speechOutput": speechOutput,
-      "repromptText": repromptText
+      "repromptText": reprompt
     }
 
     callback(sessionAttributes, buildSpeechletResponse(header, speechOutput, reprompt, shouldEndSession))
