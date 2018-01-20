@@ -126,8 +126,8 @@ function handlerCloseRoomResponse(intent, session, callback){
     if(data != "ERROR"){
       speechOutput = data
     }
-  })
   callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
+})
 }
 
 function url(){
