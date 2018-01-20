@@ -11,6 +11,8 @@ export default class JoinRoom extends React.Component {
 
   joinRoom() {
     console.log('Choosing Room')
+    const { navigate } = this.props.navigation;
+    navigate('RoomControls', { roomName: this.state.roomName })
   }
 
   openJoinRoom() {
