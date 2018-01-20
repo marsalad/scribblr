@@ -107,17 +107,20 @@ function getWelcomeResponse(callback) {
 }
 function handleCreateRoomResponse(intent, session, callback){
       if(true){
-        var speechOutput = "You started a session, let me know when you want to end it."
-        var header = "Session Started"
-        var reprompt = "Is there something else I can do for you?"
+        var speechOutput = "Something went wrong."
+          getJSON(function(data){
+            if(data != "ERROR"){
+              speechOutput = "You succesfully started a room"
+            }
+          callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", false))
+          })
       }else{
         var speechOutput = "I'm sorry, I couldn't open the meeting room."
         var repromptText = "would you like to try again?"
         var header = "Creating Room failed."
-      }
-      var shouldEndSession = false
-      callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession));
-
+        var shouldEndSession = false
+        callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession));
+  }
 }
 function handlerCloseRoomResponse(intent, session, callback){
   var speechOutput = "We have an error."
