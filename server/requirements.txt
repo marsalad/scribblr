@@ -3,4 +3,5 @@ SpeechRecognition
 python-socketio
 eventlet
 pydub
+firebase-admin
 -e git://github.com/summanlp/textrank.git#egg=summa

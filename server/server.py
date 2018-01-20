@@ -4,11 +4,14 @@ import eventlet
 import eventlet.wsgi
 import speech_recognition as sr
 from pydub import AudioSegment
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import db
 from summa import keywords, summarizer
 from nltk.tokenize import word_tokenize
 from os.path import join, dirname
 from dotenv import load_dotenv
-
+from send_email import send_cards
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
@@ -18,13 +21,38 @@ r = sr.Recognizer()
 
 recorders = []
 
+cred = credentials.Certificate('./key.json')
+default_app = firebase_admin.initialize_app(cred, {
+    'databaseURL' : 'https://scribblr-73ff0.firebaseio.com/'
+})
+fb_root = db.reference()
+
+@app.route("/create-room", methods=["POST", "GET"])
+def create_room():
+    num_rooms = len(fb_root.child('room').get())
+    fb_root.child('room').child(str(num_rooms)).set({'emails': ['michelkerlin@gmail.com']})
+    return "Created Room " + str(num_rooms)
+
+@app.route("/add-email", methods=["GET"])
+def add_email():
+    emails = fb_root.child('room').child(request.args.get('room')).child('emails').get()
+    emails.append(request.args.get('email'))
+    fb_root.child('room').child(request.args.get('room')).child('emails').set(emails)
+    return "Added email"
+
+@app.route("/send-emails", methods=["GET"])
+def send_meeting_emails():
+    emails = fb_root.child('room').child(request.args.get('room')).child('emails').get()
+    send_cards(['Suh dude'], emails)
+    return 'Emails sent'
+
 @app.route("/start-recording", methods=["POST", "GET"])
 def trigger_record():
     for recorder in recorders:
         sio.emit('start-recording', room=recorder)
     return "Success"
 
-@app.route("/stop-recording". methods=["POST", "GET"])
+@app.route("/stop-recording", methods=["POST", "GET"])
 def trigger_stop():
     for recorder in recorders:
         sio.emit('stop-recording', room=recorder)

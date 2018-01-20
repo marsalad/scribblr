@@ -63,4 +63,4 @@ def send_cards(cards, emails):
         html = html_template.format(cards_html)
         send_email(server, email, 'Meeting', text, html)
  
-send_cards('', ['michelkerlin@gmail.com'])
+#send_cards('', ['michelkerlin@gmail.com'])

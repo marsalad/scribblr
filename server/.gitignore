@@ -1,3 +1,5 @@
 test.wav
 .env
 src
+key.json
+__pycache__
