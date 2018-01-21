@@ -79,6 +79,8 @@ function onIntent(intentRequest, session, callback) {
       handleYesResponse(intent, session, callback)
     }else if(intentName == "AMAZON.NoIntent"){
       handleNoResponse(intent, session, callback)
+    }else if(intentName == "addContact"){
+      handleAddContact(intent, session, callback)
     }else{
       throw "Invalid intent"
     }
@@ -149,6 +151,24 @@ function handlerStopResponse(intent, session, callback){
   })
 }
 
+function handleAddContact(intent, session, callback){
+  //TODO check if the "contact" is right here
+  var name = intent.slots.contact.value.toLowerCase();
+  if(!contact[name]){
+    var speechOutput = "This person is not in your contacts. Try another."
+    var repromptText = "Try adding someone in your contacts."
+    var header = "Not in contacts."
+  }else{
+    var speechOutput = name + " has been added. Do you want to add another contact?"
+    var repromptText = "Do you want to add another contact?"
+    var header = "Added Contact"
+  }
+  var shouldEndSession = false
+  callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession))
+
+  var header = "Added someone to meeting"
+}
+
 //Connection to API
 function url(){
   //get request url from wikipedia
@@ -187,7 +207,7 @@ function handleYesResponse(intent, session, callback){
   var speechOutput = "What can I do for you?"
   var repromptText = "What can I do for you?"
   var shouldEndSession = false
-  callback(sessioon.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText))
+  callback(sessioon.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession))
 }
 
 function handleNoResponse(intent, session, callback){
