@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/res/merged/debug/mipmap-xxhdpi/ic_launcher.png",
+        "source": "/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/src/main/res/mipmap-xxhdpi/ic_launcher.png"
+    }
+]

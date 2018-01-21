@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/xml/preferences.xml"
+    },
+    {
+        "merged": "/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/res/merged/debug/xml/preferences.xml",
+        "source": "/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/res/xml/preferences.xml"
+    }
+]
