@@ -52,10 +52,19 @@ def add_events(cal_list):
 	# (sentence, possible_date, keyword_list)
 	for (sentence, start, keywords) in cal_list:
 		end = start + datetime.timedelta(hours=1)
+		if len(keywords) == 0:
+			summary = 'Meeting/Task from Scribblr'
+			description = ''
+		else if len(keywords) == 1:
+			summary = keywords[0].title() + ' Meeting'
+			description = ''
+		else:
+			summary = keywords[0].title() + ' Meeting'
+			description = 'Topics: ' + ', '.join(keywords[1::])
 
 		event = {
-			'summary': sentence,
-			'description': 'Topics: ' + ', '.join(keywords),
+			'summary': summary,
+			'description': description,
 			'start' : {
 				'dateTime': start.isoformat('T'),
 				'timeZone': 'America/New_York',
@@ -65,5 +74,4 @@ def add_events(cal_list):
 				'timeZone': 'America/New_York',
 			}
 		}
-
 		event = service.events().insert(calendarId ='primary', body=event).execute()
