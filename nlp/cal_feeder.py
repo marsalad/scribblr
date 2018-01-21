@@ -55,7 +55,7 @@ def add_events(cal_list):
 		if len(keywords) == 0:
 			summary = 'Meeting/Task from Scribblr'
 			description = ''
-		else if len(keywords) == 1:
+		elif len(keywords) == 1:
 			summary = keywords[0].title() + ' Meeting'
 			description = ''
 		else:
