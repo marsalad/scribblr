@@ -38,10 +38,12 @@ MERGED from [com.facebook.fbui.textlayoutbuilder:textlayoutbuilder:1.0.0] /home/
 MERGED from [com.facebook.fresco:fresco:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:drawee:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:imagepipeline-okhttp3:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.soloader:soloader:0.1.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/AndroidManifest.xml:2:3-70
+MERGED from [com.facebook.fresco:animated-gif:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-gif/1.3.0/AndroidManifest.xml:5:5-7:41
+MERGED from [com.facebook.fresco:animated-base:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/animated-base/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:imagepipeline:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:imagepipeline-base:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/AndroidManifest.xml:5:5-7:41
 MERGED from [com.facebook.fresco:fbcore:1.3.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/AndroidManifest.xml:5:5-7:41
-MERGED from [com.facebook.soloader:soloader:0.1.0] /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/AndroidManifest.xml:2:3-70
 	android:targetSdkVersion
 		ADDED from /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/src/main/AndroidManifest.xml:12:9-38
 		INJECTED from /home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/src/main/AndroidManifest.xml
