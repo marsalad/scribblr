@@ -10,10 +10,15 @@ from sumy.nlp.tokenizers import Tokenizer
 from sumy.summarizers.lsa import LsaSummarizer as Summarizer
 from sumy.nlp.stemmers import Stemmer
 from sumy.utils import get_stop_words
-nltk.download('punkt')
-nltk.download('averaged_perceptron_tagger')
-nltk.download('maxent_ne_chunker')
-nltk.download('words')
+
+dler = nltk.downloader.Downloader()
+dler._update_index()
+dler._status_cache['panlex_lite'] = 'installed'
+
+nltk.download('punkt', halt_on_error=False)
+nltk.download('averaged_perceptron_tagger', halt_on_error=False)
+nltk.download('maxent_ne_chunker', halt_on_error=False)
+nltk.download('words', halt_on_error=False)
 
 class TranscriptAnalyzer:
 	"""This class defines several procdures for analyzing Scribblr transcripts."""
