@@ -6,7 +6,7 @@ var contacts = {
   "diana",
   "mike"
 }
-
+//TODO might need to change to AMAZON.US_FIRST_NAMES
 
 
 var request = require("request")
@@ -181,14 +181,16 @@ function handleAddContact(intent, session, callback){
   var name = this.event.request.intent.slots.contact.value.toLowerCase();
   console.log(name);
   if(!contacts[name]){
-    var speechOutput = "This person is not in your contacts. Try another."
+    var speechOutput = name + " is not in your contacts. Try another."
     var repromptText = "Try adding someone in your contacts."
     var header = "Not in contacts."
   }else{
-    var get_link = ""
+    var get_link = "http://64dc0fe9.ngrok.io/?=" + name
+    request.get("http://64dc0fe9.ngrok.io/stop-recording", function(error, response, body){
     var speechOutput = name + " has been added. Do you want to add another contact?"
     var repromptText = "Do you want to add another contact?"
-    var header = "Added Contact"
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, false))
+    })
   }
   var shouldEndSession = false
   callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession))
