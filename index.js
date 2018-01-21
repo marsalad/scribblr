@@ -62,17 +62,21 @@ function onIntent(intentRequest, session, callback) {
     var intentName = intentRequest.intent.name;
 
     // dispatch custom intents to handlers here
-
+    console.log(intentName);
     if(intentName == "CreateRoom"){
+      //callback(session.attributes, buildSpeechletResponseWithoutCard("Test", "test", false))
+      //return;
         handleCreateRoomResponse(intent, session, callback);
-    }else if(intentName == "StartRecording"){
+    }
+    else if(intentName == "StartRecording"){
+      //callback(session.attributes, buildSpeechletResponseWithoutCard("You succesfully started recording", "Can I do anything else for you?", false));
         handlerStartResponse(intent, session, callback)
-    }else if(intentName == "StopRecording"){
+    }else if(intentName == "CloseRoom"|| intentName == "StopRecording"){
         handlerStopResponse(intent, session, callback)
     }else if (intentName == "AMAZON.CancelIntent"){
         handleFinishSessionRequest(intent, session, callback)
     }else if (intentName == "AMAZON.HelpIntent"){
-      handleGetHelpRequest(intent, session, call)
+      handleGetHelpRequest(intent, session, callback)
     }else if (intentName == "AMAZON.StopIntent"){
       handleFinishSessionRequest(intent, session, callback)
     }else if(intentName == "AMAZON.YesIntent"){
@@ -116,8 +120,9 @@ function handleCreateRoomResponse(intent, session, callback){
           getJSON(function(data){
             if(data != "ERROR"){
               speechOutput = "You succesfully started room " + data
+              var repromptText = "Can I do anything else for you?"
             }
-          callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, "", false))
+          callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, false))
           })
       }else{
         var speechOutput = "I'm sorry, I couldn't open the meeting room."
@@ -130,30 +135,41 @@ function handleCreateRoomResponse(intent, session, callback){
 
 //StartRecording
 function handlerStartResponse(intent, session, callback){
-  var speechOutput = "Recording unavailable"
+  if(true){
+    var speechOutput = "Recording unavailable."
+      startJSON(function(data){
+        if(data != "ERROR"){
+          speechOutput = "Your meeting is now being recorded"
+          var repromptText = "Can I do anything else for you?"
+        }
+      callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, false))
+      })
+  }else{
+    var speechOutput = "I'm sorry, I couldn't record anything."
+    var repromptText = "would you like to try again?"
+    var header = "Recording failed."
+    var shouldEndSession = false
+    callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession));
+   }
 
-  getLameKerlin(urlrecording(), function(data){
-    if(data != "ERROR"){
-      speechOutput = data
-    }
-  callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
-  })
 }
+
 //StopRecording
 function handlerStopResponse(intent, session, callback){
   var speechOutput = "Can't stop recording"
-
-  getLameKerlin(urlstop(), function(data){
-    if(data != "ERROR"){
-      speechOutput = data
-    }
-  callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput,"", true))
-  })
+  //FIXME remove
+  request.get("http://64dc0fe9.ngrok.io/stop-recording", function(error, response, body){
+    speechOutput = "Your meeting is no longer being recorded"
+    var repromptText = "Can I do anything else for you?"
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, false))
+    })
 }
 
+//Get user spoken name and match to a slot
 function handleAddContact(intent, session, callback){
   //TODO check if the "contact" is right here
-  var name = intent.slots.contact.value.toLowerCase();
+  var name = this.event.request.intent.slots.contact.value.toLowerCase();
+  console.log(name);
   if(!contact[name]){
     var speechOutput = "This person is not in your contacts. Try another."
     var repromptText = "Try adding someone in your contacts."
@@ -166,32 +182,22 @@ function handleAddContact(intent, session, callback){
   var shouldEndSession = false
   callback(session.attributes, buildSpeechletResponse(header, speechOutput, repromptText, shouldEndSession))
 
-  var header = "Added someone to meeting"
 }
 
-//Connection to API
+//Connection to the server
 function url(){
-  //get request url from wikipedia
-  return "http://kerlin.tech:5000/create-room"
+  //get request url for room createion
+  return "http://64dc0fe9.ngrok.io/create-room"
 }
 
 function urlrecording(){
-  return "http://kerlin.tech:5000/start-recording"
+  return "http://64dc0fe9.ngrok.io/start-recording"
 }
 
 function urlstop(){
-  return "http://kerlin.tech:5000/stop-recording"
+  return "http://64dc0fe9.ngrok.io/stop-recording"
 }
-function getLameKerlin(url, callback){
-    request.get(url, function(error, response, body){
-      var d = body
-      if(d == "Success"){
-        callback(d);
-      } else {
-        callback("ERROR")
-      }
-    })
-}
+
 function getJSON(callback){
     request.get(url(), function(error, response, body){
       var d = Number.parseInt(body)
@@ -203,11 +209,23 @@ function getJSON(callback){
     })
 }
 
+function startJSON(callback){
+  request.get(urlrecording(), function(error, response, body){
+    var d = Number.parseInt(body)
+    if(d >= 0){
+      callback(d);
+    } else {
+      callback("ERROR")
+    }
+  })
+}
+
+// --------- Don't touch anything bellow this line ------
 function handleYesResponse(intent, session, callback){
   var speechOutput = "What can I do for you?"
   var repromptText = "What can I do for you?"
   var shouldEndSession = false
-  callback(sessioon.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession))
+  callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession))
 }
 
 function handleNoResponse(intent, session, callback){
@@ -220,7 +238,7 @@ function handleGetHelpRequest(intent, session, callback) {
     }
     var speechOutput = "I can open meetings, I can close meetings."
     var repromptText = "Ask me to open or close a meeting."
-    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, shouldEndSession = false))
+    callback(session.attributes, buildSpeechletResponseWithoutCard(speechOutput, repromptText, false))
 
 }
 
