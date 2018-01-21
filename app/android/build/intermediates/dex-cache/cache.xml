@@ -3,120 +3,30 @@
 
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="24303e5ddb2c1210dd7e8db9dbab018f50313e48">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.50.3_45a1659d9544a6a79f7ee63cfc1a862f95b63e8b.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/com.google.code.findbugs/jsr305/3.0.0/5871fb60dc68d67da54a663c3fd636a10a532948/jsr305-3.0.0.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="5871fb60dc68d67da54a663c3fd636a10a532948">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_b538db56605d2f03a1b287c0b407ab1ddac463dc.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/jsr305-3.0.0_b538db56605d2f03a1b287c0b407ab1ddac463dc.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_f5a8d218ab3ff78f7491ce069d73de58c7268275.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/jars/libs/infer-annotations-4.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_d638c649b0217664f377826b36cf44ef858767f3.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.0_a29a4a1857e8a642b3949f2e0f5edfd3af5eb8b9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_ca4f8866673e587de0dce5c87d141718e1a5cbd5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-base/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="72128af126ddd7d6252da9357fe560d3abcdfb0c">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_0cefd5898d98f5553daebfc51e1e4094a30aede4.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-base-1.3.0_2d5bd3c35893bac8d1f7818616a8a9f8e6714a11.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_37cb729b2e5c74b6ef91fb10aeea8be93fae1a97.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fbcore/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="37345de2ed2772f385eaeec37a9c2ff0fea99ad7">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_a6c9300dd6f041eb66dfbeda4cecdc67f0e494f9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/scribblrapp/react-native-audio/unspecified/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="12849439dd6304e88dc302f291bfd2c4e0e8c62d">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/scribblrapp-react-native-audio-unspecified_e83dac426afde999875328cbb36c01701609a248.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.0_afd7edd7861c808bd930b979bff67f531e79d1be.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="6975da39a7040257bd51d21a231b76c915872d38">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_d45213be42c1e388c413490a5b41f502db30ea14.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_b3d57ec7deda8b54908d453b5fd7ea6e9d32c628.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fbcore-1.3.0_97783c2a312e2e63f05ac6a9fba0b2d41100fbdf.jar" />
     </item>
     <item
         is-multidex="false"
@@ -125,34 +35,34 @@
         optimize="true"
         revision="23.0.1"
         sha1="a9283170b7305c8d92d25aff02a6ab7e45d06cbe">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_1bc570aef7bf488083db3791bccd8a10fbce45f7.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/okio-1.13.0_1bc570aef7bf488083db3791bccd8a10fbce45f7.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fbui.textlayoutbuilder/textlayoutbuilder/1.0.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_4917d2b7dd142710e89149c2ee947cefd6e497f9.jar" />
+        sha1="f90b593491e4044903f0bbf68dc3fa2790b151b9">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fbui.textlayoutbuilder-textlayoutbuilder-1.0.0_45e63c488460a163414a1601f79670f4674e0da1.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.soloader/soloader/0.1.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0_1014d1beb8d7528aa1f4f26abea0cfe7c1024287.jar" />
+        sha1="8f615bca00639150c9eb6175d4b5471193f70794">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.soloader-soloader-0.1.0_53632b7cbaac768bf6b654dd660e645dde24c0f8.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/scribblrapp/react-native-audio/unspecified/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
-        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_17bdf8444ede9f6321156aa9cc33ecdacdc46c87.jar" />
+        sha1="12849439dd6304e88dc302f291bfd2c4e0e8c62d">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/scribblrapp-react-native-audio-unspecified_72203850647d4af060da786e00c28b06b4a89011.jar" />
     </item>
     <item
         is-multidex="false"
@@ -161,7 +71,106 @@
         optimize="true"
         revision="23.0.1"
         sha1="69edde9fc4b01c9fd51d25b83428837478c27254">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_2f3481fb81adbdf2d251a7c1cd5726db2a89172f.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/okhttp-3.6.0_2f3481fb81adbdf2d251a7c1cd5726db2a89172f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="57ae0d750ff83f0c738d21720224ac7ea866a094">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.android.support-appcompat-v7-23.1.0_4024f8fc14b45fdefaed28b258445e9c1b608f87.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="ddde541c289c8b816a8f8fd6c325d80788c522a6">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.android.support-support-v4-23.1.0_a785185035dc59fb1cba8313a7c28dba95bcbeaa.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="24303e5ddb2c1210dd7e8db9dbab018f50313e48">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.react-react-native-0.50.3_ee5762709449167ec4d9928bc43b7d802f38aaef.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp-urlconnection/3.6.0/3f9b16b774f2c36cfd86dd2053d0b3059531dacc/okhttp-urlconnection-3.6.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="3f9b16b774f2c36cfd86dd2053d0b3059531dacc">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/okhttp-urlconnection-3.6.0_ca4f8866673e587de0dce5c87d141718e1a5cbd5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/fresco/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="fe85b87215e405f5917d40ae4960488ac9224b74">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-fresco-1.3.0_bb9b15fdfa2ac23bee042faacd13bf8f997b00c9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.react/react-native/0.50.3/jars/libs/infer-annotations-4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="9809e90be788acdb479b2b44e2112f3295a03068">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/infer-annotations-4.0_be8351c9510a6b35ede15e96cb4948e4cbf5fdf3.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/javax.inject/javax.inject/1/6975da39a7040257bd51d21a231b76c915872d38/javax.inject-1.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="6975da39a7040257bd51d21a231b76c915872d38">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/javax.inject-1_d45213be42c1e388c413490a5b41f502db30ea14.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/.gradle/caches/modules-2/files-2.1/com.parse.bolts/bolts-tasks/1.4.0/d85884acf6810a3bbbecb587f239005cbc846dc4/bolts-tasks-1.4.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="d85884acf6810a3bbbecb587f239005cbc846dc4">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/bolts-tasks-1.4.0_4917d2b7dd142710e89149c2ee947cefd6e497f9.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline-okhttp3/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="c03c08c9934b23c8c09c803345ec51a74119127b">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-okhttp3-1.3.0_e30fd4d8d0355ba839f8e0fac3f728d974437d5e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_d059ed22885f792e042858dd4f1ea70cf60c6713.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.0/jars/libs/internal_impl-23.1.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="23.0.1"
+        sha1="8716243bf04bae8d6c9ca94d27b9a9be7236f0a3">
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/internal_impl-23.1.0_1255ec1d5700e1edca0195950507e05628460db8.jar" />
     </item>
     <item
         is-multidex="false"
@@ -170,16 +179,16 @@
         optimize="true"
         revision="23.0.1"
         sha1="f162442a19fff13995fbd51ba414d9ee05579080">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_8306cc9911f6a0c77637b84646906fbc8b3cb6b5.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/staticlayout-proxy-1.0_8306cc9911f6a0c77637b84646906fbc8b3cb6b5.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
+        jar="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/drawee/1.3.0/jars/classes.jar"
         jumboMode="false"
         optimize="true"
         revision="23.0.1"
         sha1="c65a2e39d54023bac3aef64a2f0cff89289c7ff6">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_a78c7796662029d0b99f8f11902a27084df29aec.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-drawee-1.3.0_c0b75545b7ae6f1226a445946d5f1cc9ef771283.jar" />
     </item>
     <item
         is-multidex="false"
@@ -188,16 +197,7 @@
         optimize="true"
         revision="23.0.1"
         sha1="92e3fc113ec3ee36b64603a38857b95700025633">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0_30f7b82c0cdac3b045c7f1e9486f56d95c44198e.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/exploded-aar/com.facebook.fresco/imagepipeline/1.3.0/jars/classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="23.0.1"
-        sha1="48c7f54c2515a2312d3a4481d10c43fbb807f3af">
-        <dex dex="/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/pre-dexed/debug/com.facebook.fresco-imagepipeline-1.3.0_7264240f2396cc061b5af9cafa50bee165142f9d.jar" />
+        <dex dex="/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/pre-dexed/debug/support-annotations-23.1.0_30f7b82c0cdac3b045c7f1e9486f56d95c44198e.jar" />
     </item>
 
 </items>

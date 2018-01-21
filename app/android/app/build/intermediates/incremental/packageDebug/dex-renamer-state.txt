@@ -1,4 +1,4 @@
-#Fri Jan 19 23:37:30 EST 2018
-base.0=/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
+#Sat Jan 20 19:19:48 EST 2018
+base.0=/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main
 renamed.0=classes.dex
-file.0=/home/kerlinmichel/Desktop/scribblr/scribblr-app/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
+file.0=/home/kerlinmichel/Desktop/test/etf/scribblr/app/android/app/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex
