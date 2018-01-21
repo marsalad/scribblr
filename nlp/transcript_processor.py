@@ -100,7 +100,7 @@ class TranscriptAnalyzer:
 		# Returns a list of the concepts discussed
 		concepts = []
 		for sentence in self.summary:
-			concept  = (self._concept_finder(str(sentence))) 
+			concept = (self._concept_finder(str(sentence))) 
 			if concept is not None:
 				 concepts += [concept]
 		return concepts
@@ -110,18 +110,18 @@ class TranscriptAnalyzer:
 		# a datetime.datetime date and a list of keywords relevant to the event.
 		calendar_items = []
 		for sentence in self.tokenized_transcript:
-		  possible_date = self._date_parser(sentence.decode("utf-8"))
-		  if possible_date is not None:
-		  	calendar_items += [(sentence, possible_date, self._keyword_detector(str(sentence)))]
+			possible_date = self._date_parser(sentence.decode("utf-8"))
+			if possible_date is not None:
+				calendar_items += [(sentence, possible_date, self._keyword_detector(str(sentence)))]
 		return calendar_items
 
 	def retrieve_action_items(self):
 		# Returns a list of the sentences containing action items.
 		action_items = []
 		for sentence in self.tokenized_transcript:
-		  possible_command = self._command_detected(str(sentence))
-		  if possible_command is True:
-			action_items += [(str(sentence))]
+			possible_command = self._command_detected(str(sentence))
+			if possible_command is True:
+				action_items += [(str(sentence))]
 		return action_items
 
 	command_words = ["can you", "would you", "can we", "you should", "we should", "we need to", 
@@ -130,52 +130,52 @@ class TranscriptAnalyzer:
 	prohibited_command_words = ["Let me", "?"]
 
 	def _command_detected(self, sentence):
-	  # Detects whether a given String sentence is a command or action-item
-	  tagged_sentence = pos_tag(word_tokenize(sentence));
-	  first_word = tagged_sentence[0];
-	  pos_first = first_word[1];
-	  first_word = first_word[0].lower()
-	  for word in self.prohibited_command_words:
-		if word in sentence:
-			return False
-	  for word in self.command_words:
-		if word in sentence:
+		# Detects whether a given String sentence is a command or action-item
+		tagged_sentence = pos_tag(word_tokenize(sentence));
+		first_word = tagged_sentence[0];
+		pos_first = first_word[1];
+		first_word = first_word[0].lower()
+		for word in self.prohibited_command_words:
+			if word in sentence:
+				return False
+		for word in self.command_words:
+			if word in sentence:
+				return True
+		# Checks whether the first sentence is a Modal Verb or other type of Verb that is not a gerund
+		if (pos_first == "VB" or pos_first == "VBZ" or pos_first == "VBP")    and first_word[-3:] != "ing":
 			return True
-	  # Checks whether the first sentence is a Modal Verb or other type of Verb that is not a gerund
-	  if (pos_first == "VB" or pos_first == "VBZ" or pos_first == "VBP")  and first_word[-3:] != "ing":
-		return True
-	  return False
+		return False
 
 	schedule_words = [" by ", " due ", "plan", "setup", "schedule", "complete by", "complete on", "next", " on ", " in "]
 	prohibited_schedule_words = ["today"]
 
 	def _date_parser(self, sentence):
-	  cal = parsedatetime.Calendar()
-	  time_struct, parse_status = cal.parse(sentence)
-	  time_struct_null, parse_status_null = cal.parse("")
+		cal = parsedatetime.Calendar()
+		time_struct, parse_status = cal.parse(sentence)
+		time_struct_null, parse_status_null = cal.parse("")
 
-	  # If the time detected is the same as the current time, discard.
-	  if datetime(*time_struct[:6]) == datetime(*time_struct_null[:6]):
-		return None
-	  # For ease of use, events cannot be scheduled for the same day with use of the word "today." 
-	  # A relative term ("in an hour") should be used instead.
-	  for word in self.prohibited_schedule_words:
-		if word in sentence:
+		# If the time detected is the same as the current time, discard.
+		if datetime(*time_struct[:6]) == datetime(*time_struct_null[:6]):
 			return None
-	  # Events cannot be schedule in the past.
-	  tagged_sentence = pos_tag(word_tokenize(sentence));
-	  for word in tagged_sentence:
-	  	if word[1] == "VBD":
-	  		return None
+		# For ease of use, events cannot be scheduled for the same day with use of the word "today." 
+		# A relative term ("in an hour") should be used instead.
+		for word in self.prohibited_schedule_words:
+			if word in sentence:
+				return None
+		# Events cannot be schedule in the past.
+		tagged_sentence = pos_tag(word_tokenize(sentence));
+		for word in tagged_sentence:
+			if word[1] == "VBD":
+				return None
 
-	  for word in self.schedule_words:
-		if word in sentence:
-			return datetime(*time_struct[:6])
-	  return None
-	  
+		for word in self.schedule_words:
+			if word in sentence:
+				return datetime(*time_struct[:6])
+		return None
+		
 	def text_summary(self):
 		# Returns a summary of the transcript of the length given to the constructor.
 		transcript_summary = ""
 		for sentence in self.summary:
-			transcript_summary  = transcript_summary + " " + str(sentence)
+			transcript_summary    = transcript_summary + " " + str(sentence)
 		return transcript_summary
