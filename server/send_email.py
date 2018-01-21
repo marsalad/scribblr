@@ -4,6 +4,7 @@ from os import environ
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import datetime
 
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
@@ -37,7 +38,9 @@ html_template='''
 card_template = """
 <div class="card">
   <div class="container">
-    <h4><b>{}</b></h4> 
+    <p>{}</p>
+    <h4><b>Action Items</b></h4>
+    <p><ul>{}</ul></p>
     <p>{}</p> 
   </div>
 </div>
@@ -51,16 +54,19 @@ def send_email(server, to, subject, text, html):
     msg['To'] = to
     server.sendmail('Scribblr', to, msg.as_string())
 
-def send_cards(cards, emails):
+def send_cards(card, emails):
+    now = datetime.datetime.now().strftime('%d, %b %Y')
     cards_html = ''
     server = smtplib.SMTP(environ.get("SMTP_URL"))
     server.starttls()
     server.login(environ.get("EMAIL_USER"), environ.get("EMAIL_PASSWORD"))
-    for card in cards:
-        cards_html += card_template.format('card', card)
+    actions = ''
+    for action in card['action_items']:
+        actions += '<li>{}</li>\n'.format(action)
+    cards_html = card_template.format(card['summary'], actions, 'Added {} events to the calendar'.format(len(card['calendar_events'])))
     for email in emails:
         text = '\n'.join(cards)
         html = html_template.format(cards_html)
-        send_email(server, email, 'Meeting', text, html)
+        send_email(server, email, 'Meeting at ' + now, text, html)
  
 #send_cards('', ['michelkerlin@gmail.com'])
