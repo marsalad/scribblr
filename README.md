@@ -23,7 +23,7 @@ When the meeting is over, those who participated in the meeting will receive an 
 ## How It Works
 The hack begins with an <b>Alexa skill</b>. We created a custom Alexa skill that allows the user to start and stop the meeting without skipping a beat. No more asking who is willing to take notes or hoping that the note-taker can keep up with the fast-pace -- just tell Alexa to start the meeting and carry on as normal.
 
-The meeting is then assigned a unique access code that is transmitted to our server which initiates the audio recording. Upon completion of a meeting, Alexa makes a request to the server to transcribe the text using the <b>IBM Watson Speech to Text API</b>.
+The meeting is then assigned a unique access code that is transmitted to our server via an <b>AWS Lambda Function</b> which initiates the audio recording. Upon completion of a meeting, Alexa makes a request to the server to transcribe the text using the <b>IBM Watson Speech to Text API</b>.
 
 But at the core of Scribblr are its <b>Natural Language Processing (NLP)</b> algorithms:
 - The final transcript is first preprocessed, involving tokenization and stemming to standardize the transcript.
