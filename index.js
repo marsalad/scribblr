@@ -1,3 +1,14 @@
+var contacts = {
+  "eric",
+  "jane",
+  "kevin",
+  "krista",
+  "diana",
+  "mike"
+}
+
+
+
 var request = require("request")
 // Route the incoming request based on type (LaunchRequest, IntentRequest,
 // etc.) The JSON body of the request is provided in the event parameter.
@@ -157,7 +168,6 @@ function handlerStartResponse(intent, session, callback){
 //StopRecording
 function handlerStopResponse(intent, session, callback){
   var speechOutput = "Can't stop recording"
-  //FIXME remove
   request.get("http://64dc0fe9.ngrok.io/stop-recording", function(error, response, body){
     speechOutput = "Your meeting is no longer being recorded"
     var repromptText = "Can I do anything else for you?"
@@ -167,14 +177,15 @@ function handlerStopResponse(intent, session, callback){
 
 //Get user spoken name and match to a slot
 function handleAddContact(intent, session, callback){
-  //TODO check if the "contact" is right here
+  //TODO check if the "contact" is right here May have to change type to US names
   var name = this.event.request.intent.slots.contact.value.toLowerCase();
   console.log(name);
-  if(!contact[name]){
+  if(!contacts[name]){
     var speechOutput = "This person is not in your contacts. Try another."
     var repromptText = "Try adding someone in your contacts."
     var header = "Not in contacts."
   }else{
+    var get_link = ""
     var speechOutput = name + " has been added. Do you want to add another contact?"
     var repromptText = "Do you want to add another contact?"
     var header = "Added Contact"
