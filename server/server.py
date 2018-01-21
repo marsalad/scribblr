@@ -12,6 +12,10 @@ from nltk.tokenize import word_tokenize
 from os.path import join, dirname
 from dotenv import load_dotenv
 from send_email import send_cards
+import requests
+import json
+from urllib.parse import quote
+
 dotenv_path = join(dirname(__file__), '.env')
 load_dotenv(dotenv_path)
 
@@ -50,12 +54,24 @@ def send_meeting_emails():
 def trigger_record():
     for recorder in recorders:
         sio.emit('start-recording', room=recorder)
-    return "Success"
+    return str(1)
 
 @app.route("/stop-recording", methods=["POST", "GET"])
 def trigger_stop():
     for recorder in recorders:
         sio.emit('stop-recording', room=recorder)
+    transcription = fb_root.child('room').child('0').child('transcribe').get()
+    speech = ''
+    for t in transcription:
+        speech += transcription[t] + '. '
+    #print(speech) 
+    speech = requests.post('http://bark.phon.ioc.ee/punctuator?text={}'.format(quote(speech))).content.decode()
+    print(speech)
+    res = requests.post('http://aec081e2.ngrok.io/meetingOver', json={'text': speech}).content.decode()
+    print(res)
+    res = json.loads(res)
+    emails = fb_root.child('room').child('0').child('emails').get()
+    send_cards(res, emails)
     return "Success"
 
 words = []
@@ -66,7 +82,7 @@ def stream_audio(room):
     if 'file' in request.files:
         _file = request.files['file']
         _file.save('./test.wav')
-        audio_file = AudioSegment.from_file("test.wav", format="m4a")
+        audio_file = AudioSegment.from_file("test.wav", format="mp4")
         audio_file.export("test.wav", format="wav")
         try:
             with sr.AudioFile('./test.wav') as f:
@@ -78,6 +94,8 @@ def stream_audio(room):
                 words += tokens
                 curr_sent += text + ' '
                 print('text:', text)
+                if text:
+                    fb_root.child('room').child(room).child('transcribe').push(text)
                 if len(words) >= 30:
                     fb_root.child('room').child(room).child('cards').push(keywords.keywords(' '.join(words)).split('\n'))
                     print('Keywords:', str(keywords.keywords(' '.join(words)).split('\n')))
